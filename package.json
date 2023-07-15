@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "start": "PORT=3434 next-remote-watch ./data",
+    "start": "NODE_ENV=production PORT=3434 next-remote-watch ./data",
     "dev": "PORT=3434 next dev",
     "postinstall": "prisma generate",
     "build": "next build && tsx ./scripts/generate-sitemap",
@@ -10,7 +10,8 @@
     "lint": "next lint --fix --dir pages --dir components --dir lib --dir layouts --dir scripts --dir pages",
     "prepare": "husky install",
     "typecheck": "npx tsc -b",
-    "upgrade": "rimraf package-lock.json && npx taze major -w && ni"
+    "upgrade": "rimraf package-lock.json && npx taze major -w && ni",
+    "export": "next build && next export"
   },
   "dependencies": {
     "@octokit/graphql": "^6.0.1",
